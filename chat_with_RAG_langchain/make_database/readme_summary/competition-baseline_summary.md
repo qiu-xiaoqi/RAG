@@ -1,0 +1,3 @@
+# competition-baseline Summary
+
+这个仓库名是competition-baseline，这仓库内容主要是收集并分享各种数据竞赛的baseline方案，旨在为数据竞赛的初学者和爱好者提供简单、实用的代码和学习资源。仓库还提供了多个竞赛的详细信息和baseline代码，涵盖了机器学习、图像处理、自然语言处理等多个领域。

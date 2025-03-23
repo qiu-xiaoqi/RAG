@@ -52,6 +52,9 @@ def get_completion(prompt :str, model :str, temperature=0.1,api_key=None, secret
         return get_completion_spark(prompt, model, temperature, api_key, appid, api_secret, max_tokens)
     elif model in ["chatglm_pro", "chatglm_std", "chatglm_lite"]:
         return get_completion_glm(prompt, model, temperature, api_key, max_tokens)
+    
+    elif model in ["deepseek-chat"]:
+        return get_completion_deepseek(prompt, model, temperature, api_key, max_tokens)
     else:
         return "不正确的模型"
     
@@ -314,5 +317,25 @@ def parse_llm_api_key(model:str, env_file:dict()=None):
     elif model == "zhipuai":
         return get_from_dict_or_env(env_file, "zhipuai_api_key", "ZHIPUAI_API_KEY")
         # return env_file["ZHIPUAI_API_KEY"]
+    elif model == "deepseek":
+        return env_file["DeepSeek_API_for_RAG"]
     else:
         raise ValueError(f"model{model} not support!!!")
+
+
+def get_completion_deepseek(prompt : str, model : str, temperature : float, api_key:str, max_tokens:int, base_url="https://api.deepseek.com/v1/chat"):
+    # 封装 OpenAI 原生接口
+    if api_key == None:
+        api_key = parse_llm_api_key("openai")
+    openai.api_key = api_key
+    # 具体调用
+    messages = [{"role": "user", "content": prompt}]
+    response = openai.ChatCompletion.create(
+        model=model,
+        messages=messages,
+        temperature=temperature, # 模型输出的温度系数，控制输出的随机程度
+        max_tokens = max_tokens, # 回复最大长度
+        base_url = base_url,
+    )
+    # 调用 OpenAI 的 ChatCompletion 接口
+    return response.choices[0].message["content"]

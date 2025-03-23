@@ -1,0 +1,3 @@
+# ensemble-learning Summary
+
+这个仓库名是ensemble-learning，这仓库内容主要是关于机器学习中的集成学习与模型融合技术的教程和实践案例。项目从机器学习的基础数学知识讲起，逐步深入到集成学习的各种方法，如投票法、Bagging、Boosting、Blending和Stacking，并通过具体案例展示这些技术的应用。教程内容包括理论讲解、代码实现（使用sklearn、xgboost、lightgbm等库）和习题，旨在帮助学习者掌握集成学习技术以提升机器学习模型的性能。

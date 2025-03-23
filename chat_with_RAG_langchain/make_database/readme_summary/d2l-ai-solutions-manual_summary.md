@@ -1,0 +1,3 @@
+# d2l-ai-solutions-manual Summary
+
+这个仓库名是d2l-ai-solutions-manual，这仓库内容主要是为李沐老师的《动手学深度学习》一书提供习题解答，帮助初学者更好地理解和掌握深度学习知识。仓库包含了书中所有习题的解答代码和运行截图，使用Jupyter Notebook格式编写，并导出为Markdown格式供在线阅读。项目还提供了详细的运行环境配置指南，包括Python版本、依赖包安装和PyTorch配置等。仓库由Datawhale团队维护，多位贡献者共同参与编写和审核，旨在为学习者提供详细的学习支持和参考。
