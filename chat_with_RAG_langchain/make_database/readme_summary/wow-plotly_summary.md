@@ -1,3 +1,0 @@
-# wow-plotly Summary
-
-这个仓库名是wow-plotly，这仓库内容主要是介绍和教程，专注于使用Python的Plotly库进行数据可视化。内容包括Plotly的特点、使用前的准备工作、项目介绍、使用说明和贡献者信息。Plotly以其动态可视化、图形多样化和代码量少等特点，适合有一定Python基础的用户学习和使用。

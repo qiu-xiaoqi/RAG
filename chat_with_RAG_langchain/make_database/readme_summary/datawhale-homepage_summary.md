@@ -1,3 +1,0 @@
-# datawhale-homepage Summary
-
-这个仓库名是datawhale-homepage，这仓库内容主要是关于DataWhale官网项目的技术选型、目录结构、开发指南和部署指南。项目使用TypeScript编程语言，后端框架为Express，部署工具为PM2。开发指南包括安装依赖、开发、打包和格式化代码的步骤，部署指南则介绍了如何启动服务。

@@ -1,0 +1,3 @@
+# fantastic-matplotlib Summary
+
+这个仓库名是 fantastic-matplotlib，这仓库内容主要是关于一个名为《Fantastic-Matplotlib》的开源教程项目，旨在帮助用户系统学习和深入理解Python数据可视化工具Matplotlib。项目通过五个章节详细介绍了Matplotlib的绘图方法、设计理念、布局、文本、样式和色彩等方面的知识，帮助用户构建全面的Matplotlib知识体系。教程基于官方文档，适合那些希望摆脱复制粘贴、深入理解Matplotlib的用户。项目还提供了使用说明、贡献者名单和项目版本更新信息。

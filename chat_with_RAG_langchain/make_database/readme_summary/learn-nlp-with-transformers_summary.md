@@ -1,3 +1,0 @@
-# learn-nlp-with-transformers Summary
-
-这个仓库名是learn-nlp-with-transformers，这仓库内容主要是基于transformers的自然语言处理入门教程，面向NLP和transformer初学者，要求有一定的Python和PyTorch基础。项目通过生动的原理讲解和动手实践，帮助初学者快速入门深度学习时代的NLP。内容包括Transformer原理、BERT模型实现及使用Transformers解决多种NLP任务。项目由多位成员共同维护，参考了Huggingface/Transformers代码库及其他优秀文档。

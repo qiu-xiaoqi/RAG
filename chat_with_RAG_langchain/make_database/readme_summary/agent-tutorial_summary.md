@@ -1,3 +1,0 @@
-# agent-tutorial Summary
-
-这个仓库名是agent-tutorial，这仓库内容主要是Datawhale成员编写的关于Agent的教程，通过实践引导学习者深入理解Agent。教程包括Agent的入门简介、实践案例（如日程规划小助手）以及Agent的应用展望，旨在帮助学习者掌握Agent开发的基本技能和应用思路。

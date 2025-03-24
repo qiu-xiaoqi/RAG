@@ -1,3 +1,0 @@
-# office-automation Summary
-
-这个仓库名是office-automation，这仓库内容主要是提供了一个为期14天的自动化办公课程，适合有Python编程基础的学员。课程内容包括文件处理、邮件自动化、Excel与Python的交互、Word和PDF处理、简单的Python爬虫以及钉钉自动化操作。课程形式为理论学习加实践练习，旨在帮助学员掌握自动化办公技能。此外，课程已在国家级AI科教平台智海上线，并由Datawhale组织提供支持。

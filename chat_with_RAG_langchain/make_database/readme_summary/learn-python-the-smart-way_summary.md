@@ -1,3 +1,0 @@
-# learn-python-the-smart-way Summary
-
-这个仓库名是 learn-python-the-smart-way，这仓库内容主要是由小雨姑娘编写的一个简明、系统的Python入门教程，旨在帮助初学者快速掌握Python编程的核心能力与技术，适合从零开始学习Python或需要在短时间内解决具体问题的同学。教程通过代码讲解理论，注重实践，提供了多种学习方式，包括在Github网页版直接查看、本地运行Jupyter Notebook、在和鲸社区或Google Colab在线运行。教程不适合希望深入学习Python高阶用法的同学。

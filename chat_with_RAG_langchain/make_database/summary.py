@@ -100,6 +100,6 @@ def main(org_name,export_dir,summary_dir,model):
 if __name__ == '__main__':
     org_name = 'datawhalechina'
     export_dir = 'make_database/readme_db'
-    summary_dir = 'make_database/readme_summary'
+    summary_dir = 'knowledge_db/readme_summary'
     model = 'deepseek-chat'
     main(org_name, export_dir, summary_dir, model)

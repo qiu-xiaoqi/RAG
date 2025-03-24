@@ -1,3 +1,0 @@
-# caublazer Summary
-
-这个仓库名是caublazer，这仓库内容主要是提供了一个名为caublazer的项目或工具，但具体的功能、用途或技术细节在readme文件中并未详细说明，仅提供了仓库的名称。

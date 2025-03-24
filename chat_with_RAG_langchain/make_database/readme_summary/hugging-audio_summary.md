@@ -1,3 +1,0 @@
-# hugging-audio Summary
-
-这个仓库名是hugging-audio，这仓库内容主要是介绍一个关于如何将Transformer应用于音频数据的课程。课程内容包括音频数据处理、Transformer架构、音频分类、语音识别、文本生成语音等技术，适合有深度学习背景的学习者。课程分为七个单元，涵盖理论知识和实践练习，旨在帮助学习者掌握使用Transformer处理音频数据的技能。
