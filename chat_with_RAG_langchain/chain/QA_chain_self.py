@@ -1,13 +1,14 @@
 from langchain.prompts import PromptTemplate
 from langchain.chains import RetrievalQA
 from langchain_community.vectorstores import Chroma
+import os
 import sys
-sys.path.append("../")  
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from chain.model_to_llm import model_to_llm
 from chain.get_vectordb import get_vectordb
 import re
 from dotenv import load_dotenv
-import os
+
 
 class QA_chain_self():
     """"
@@ -78,6 +79,7 @@ class QA_chain_self():
         result = self.qa_chain({"query": question, 
                                 "temperature": temperature, 
                                 "top_k": top_k})
+        result = self.qa_chain({"query": question})
         answer = result["result"]
         answer = re.sub(r"\\n", '<br/>', answer)
         return answer
@@ -88,8 +90,8 @@ if __name__ == "__main__":
     model = "deepseek-chat"
     temperature = 0.7
     top_k = 3
-    file_path = "../knowledge_db"
-    persist_path = r"E:\LLM_Project\RAG\chat_with_RAG_langchain\vector_db"
+    file_path = "knowledge_db"
+    persist_path = r"D:\code\LLM_Project\RAG\chat_with_RAG_langchain\vector_db\chroma"
     api_key = os.getenv("DeepSeek_API_for_RAG")
     embedding = "openai"
     embedding_key = os.getenv("EMBEDDING_KEY")
@@ -101,7 +103,6 @@ if __name__ == "__main__":
         top_k=top_k,
         file_path=file_path,
         persist_path=persist_path,
-        api_key=api_key,
         embedding=embedding,
         embedding_key=embedding_key
     )

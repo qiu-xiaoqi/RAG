@@ -1,9 +1,9 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 import os
 import sys
 
-sys.path.append("../")
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 print(sys.path)
 from chain.QA_chain_self import QA_chain_self
 
@@ -22,7 +22,9 @@ template = """
 """
 
 class Item(BaseModel):
-    prompt : str # 用户 prompt
+    model_config = ConfigDict(arbitrary_types_allowed=True)
+
+    question : str # 用户 prompt
     model : str = "deepseek-chat"# 使用的模型
     temperature : float = 0.1# 温度系数
     if_history : bool = False # 是否使用历史对话功能
@@ -39,9 +41,9 @@ class Item(BaseModel):
     # Secret_key
     Wenxin_secret_key : str = None
     # 数据库路径
-    db_path : str = "/Users/lta/Desktop/llm-universe/data_base/vector_db/chroma"
+    db_path : str = r"D:\code\LLM_Project\RAG\chat_with_RAG_langchain\vector_db\chroma"
     # 源文件路径
-    file_path : str = "/Users/lta/Desktop/llm-universe/data_base/knowledge_db"
+    file_path : str = r"D:\code\LLM_Project\RAG\chat_with_RAG_langchain\knowledge_db"
     # prompt template
     prompt_template : str = template
     # Template 变量
@@ -64,15 +66,12 @@ async def get_response(item: Item):
             item.embedding_key = item.api_key
         chain = QA_chain_self(model=item.model, 
                               temperature=item.temperature, 
-                              top_k=item.top_k, 
-                              file_path=item.file_path, 
-                              persist_path=item.db_path, 
-                              appid=item.appid, 
-                              api_key=item.api_key, 
-                              embedding=item.embedding, 
-                              template=template, 
-                              Spark_api_secret=item.Spark_api_secret, Wenxin_secret_key=item.Wenxin_secret_key, 
-                              embedding_key=item.embedding_key
+                              top_k=item.top_k,
+                              file_path=item.file_path,
+                              persist_path=item.db_path,
+                              api_key=item.api_key,
+                              embedding=item.embedding,
+                              embedding_key=item.embedding_key,
                               )
 
         response = chain.answer(question=item.prompt)

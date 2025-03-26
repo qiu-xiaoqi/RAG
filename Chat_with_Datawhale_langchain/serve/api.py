@@ -71,8 +71,18 @@ async def get_response(item: Item):
         # return item.embedding_key
         if item.embedding_key == None:
             item.embedding_key = item.api_key
-        chain = QA_chain_self(model=item.model, temperature=item.temperature, top_k=item.top_k, file_path=item.file_path, persist_path=item.db_path, 
-                                appid=item.appid, api_key=item.api_key, embedding=item.embedding, template=template, Spark_api_secret=item.Spark_api_secret, Wenxin_secret_key=item.Wenxin_secret_key, embedding_key=item.embedding_key)
+        chain = QA_chain_self(model=item.model, 
+                              temperature=item.temperature, 
+                              top_k=item.top_k, 
+                              file_path=item.file_path, 
+                              persist_path=item.db_path, 
+                                appid=item.appid, 
+                                api_key=item.api_key, 
+                                embedding=item.embedding, 
+                                template=template, 
+                                Spark_api_secret=item.Spark_api_secret, 
+                                Wenxin_secret_key=item.Wenxin_secret_key, 
+                                embedding_key=item.embedding_key)
 
         response = chain.answer(question = item.prompt)
     

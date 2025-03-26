@@ -16,7 +16,7 @@ def get_embedding(embedding: str, embedding_key: str=None, env_file: str=None):
     if embedding_key == None:
         embedding_key = parse_llm_api_key(embedding)
     
-    if embedding == "openai":
+    if embedding == "openai-embedding":
         return OpenAIEmbeddings(model="text-embedding-ada-002", 
                                 openai_api_key=embedding_key, 
                                 base_url="https://api.zhizengzeng.com/v1/")
