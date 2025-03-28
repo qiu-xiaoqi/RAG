@@ -27,11 +27,14 @@ class QA_chain_self():
     - template：可以自定义提示模板，没有输入则使用默认的提示模板default_template_rq    
     """
 
-    default_template_rq = """使用以下上下文来回答最后的问题。如果你不知道答案，就说你不知道，不要试图编造答
-    案。最多使用三句话。尽量使答案简明扼要。总是在回答的最后说“谢谢你的提问！”。
+    default_template_rq = """基于以下提供的上下文信息，以专业的客服风格回答用户的问题。
+    回答总是以'根据知识库以及你的问题，我向您提供以下答案：'；
+    回答的内容应该是事实，而不是猜测；
+    回答的内容尽量不分点表示而是完整地表达。
+    如果无法找到确切的答案，请礼貌地告知用户您无法提供相关信息，但会尽力协助解决。
     {context}
-    问题: {question}
-    有用的回答:"""
+    用户问题: {question}
+    """
 
     def __init__(self, model:str, temperature:float=0.0, top_k:int=4,  file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, Spark_api_secret:str=None,Wenxin_secret_key:str=None, embedding = "openai",  embedding_key = None, template=default_template_rq):
         self.model = model

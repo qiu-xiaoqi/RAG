@@ -27,6 +27,7 @@ class Chat_QA_chain_self:
     - embeddings：使用的embedding模型
     - embedding_key：使用的embedding模型的秘钥（智谱或者OpenAI）  
     """
+
     def __init__(self,model:str, temperature:float=0.0, top_k:int=4, chat_history:list=[], file_path:str=None, persist_path:str=None, appid:str=None, api_key:str=None, Spark_api_secret:str=None,Wenxin_secret_key:str=None, embedding = "openai",embedding_key:str=None):
         self.model = model
         self.temperature = temperature
@@ -41,7 +42,15 @@ class Chat_QA_chain_self:
         self.Wenxin_secret_key = Wenxin_secret_key
         self.embedding = embedding
         self.embedding_key = embedding_key
-
+        
+        self.default_template_rq = """基于以下提供的上下文信息，以专业的客服风格回答用户的问题。
+        回答总是以'根据知识库以及你的问题，我向您提供以下答案：'；
+        回答的内容应该是事实，而不是猜测；
+        回答的内容尽量不分点表示而是完整地表达。
+        如果无法找到确切的答案，请礼貌地告知用户您无法提供相关信息，但会尽力协助解决。
+        {context}
+        用户问题: {question}
+        """
 
         self.vectordb = get_vectordb(self.file_path, self.persist_path, self.embedding,self.embedding_key)
 
@@ -70,22 +79,27 @@ class Chat_QA_chain_self:
         if len(question) == 0:
             return "", self.chat_history
         
-        if len(question) == 0:
-            return ""
-        
         if temperature == None:
             temperature = self.temperature
         
         llm = model_to_llm(self.model, temperature, self.appid, self.api_key, self.Spark_api_secret, self.Wenxin_secret_key)
 
-        #self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+        self.memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
         retriever = self.vectordb.as_retriever(search_type="similarity",   
                                                search_kwargs={'k': top_k})
 
+
+        qa_chain_prompt = PromptTemplate(
+            input_variables=["context", "question"],
+            template=self.default_template_rq
+        )
+
         qa = ConversationalRetrievalChain.from_llm(
             llm = llm,
             retriever = retriever,
+            memory = self.memory,
+            combine_docs_chain_kwargs={"prompt": qa_chain_prompt}
         )
 
         result = qa({"question": question, 

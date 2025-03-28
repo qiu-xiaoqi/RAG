@@ -47,12 +47,13 @@ def file_loader(file, loaders):
     return 
 
 
-def create_db_info(files=DEFAULT_DB_PATH, embeddings="openai", persist_directory=DEFAULT_PERSIST_PATH):
-    if embeddings == 'openai':
+def create_db_info(files=DEFAULT_DB_PATH, embeddings="openai-embedding", persist_directory=DEFAULT_PERSIST_PATH):
+    if embeddings == 'openai-embedding':
         vectordb = create_db(files, persist_directory, embeddings)
+        print("数据向量化完成，现在你可以进行提问了！！！")
     return ""
 
-def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, embeddings="openai"):
+def create_db(files=DEFAULT_DB_PATH, persist_directory=DEFAULT_PERSIST_PATH, embeddings="openai-embedding"):
     """
     该函数用于加载 PDF 文件，切分文档，生成文档的嵌入向量，创建向量数据库。
 
@@ -125,4 +126,4 @@ def load_knowledge_db(path, embeddings):
     return vectordb
 
 if __name__ == "__main__":
-    create_db(embeddings="openai")
+    create_db(embeddings="openai-embedding")
